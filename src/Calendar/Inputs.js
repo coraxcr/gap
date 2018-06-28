@@ -24,6 +24,7 @@ const Inputs = (props) => {
                     }}
                     defaultValue = { moment(props.startDay).format("YYYY-MM-DD")  }
                     onBlur = {(event) =>  props.setStartDate(event) }
+                    inputProps = { { min: "0000-01-01"} }
                 />
             </Grid>
             <Grid item xs={4}>
@@ -47,10 +48,10 @@ const Inputs = (props) => {
                     </NativeSelect>
                 </FormControl>
             </Grid>
-            <Grid item xs="2">
+            <Grid item xs={2}>
                 <br/>
-                <Button variant="contained" color="primary" fullWidth="true">
-                    Render
+                <Button variant="contained" color="primary" type="submit">
+                    Display
                 </Button>
             </Grid>
         </Grid>
