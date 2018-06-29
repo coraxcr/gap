@@ -11,15 +11,15 @@ const theme = createMuiTheme();
 class App extends Component {
   render() {
     return (
-        <div className="App">
+        <div>
           <AppBar position="static" color="primary">
             <Toolbar>
               <Typography variant="title" color="inherit">
-                GAP on dates
+                GAP
               </Typography>
             </Toolbar>
           </AppBar>
-          <main className="App-intro">
+          <main>
             <Calendar />
           </main>
         </div>

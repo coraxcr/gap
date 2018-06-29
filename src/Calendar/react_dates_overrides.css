@@ -1,0 +1,32 @@
+
+.CalendarDay__default,
+.CalendarDay__default:hover{
+    background: grey;
+    color: grey;
+    border: 1px solid white;
+}
+
+.CalendarDay__selected_span,
+.CalendarDay__selected{
+    background: green;
+    color: black;
+    border: 1px solid white;
+}
+
+.CalendarDay__firstDayOfWeek.CalendarDay__selected_span,
+.CalendarDay__lastDayOfWeek.CalendarDay__selected_span,
+.CalendarDay__firstDayOfWeek.CalendarDay__selected,
+.CalendarDay__lastDayOfWeek.CalendarDay__selected{
+    background: yellow;
+    color: black;
+    border: 1px solid white;
+}
+
+.CalendarDay__highlighted_calendar{
+    background: orange !important;
+    color: black;
+    border: 1px solid white;  
+}
+
+
+
