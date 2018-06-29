@@ -51,8 +51,8 @@ class Form extends Component {
             <div>
                 <br/>
                 <Grid container  spacing={0} >
-                    <Grid item xs={4}></Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={false} md={4} lg={4}></Grid>
+                    <Grid item xs={12} md={4} lg={4}>
                         <FormControl component="fieldset">
                             <div style = {{color: 'red', width:"619px" }}></div>
                             <FormLabel component="legend">And now you can see holidays</FormLabel>
