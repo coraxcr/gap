@@ -12,17 +12,17 @@ import Button from '@material-ui/core/Button';
   
 const Inputs = (props) => {
     return (
-        <Grid container xs={12} alignContent = {"flex-end"}  spacing={8}>
+        <Grid container alignContent = {"flex-end"}  spacing={8}>
             <Grid item xs={4}>
                 <TextField
                     id="startDate"
                     label="Start date"
+                    fullWidth={true}
                     type="date"
                     InputLabelProps={{
                         shrink: true,
                     }}
                     defaultValue = { props.startDay.format("YYYY-MM-DD")  }
-                    onBlur = {(event) =>  props.setStartDate(event) }
                     inputProps = { { min: "0001-01-01"} }
                 />
             </Grid>
@@ -33,30 +33,28 @@ const Inputs = (props) => {
                     type="number"
                     inputProps = { { min:0} }
                     defaultValue = { props.numberOfDays }
-                    onInput = {(event) =>  props.setStartNumberOfDays(event) }
                     onFocus = {(event) => event.target.select()}
                 />
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={2}>
                 <FormControl fullWidth={true}>
                     <InputLabel htmlFor="countryCode">Country</InputLabel>
                     <NativeSelect
                         input={<Input name="countryCode" id="countryCode" />}
-                        value = { props.country } 
-                        onChange = {(event) =>  props.setStartCountry(event) }
+                        defaultValue = { props.country } 
                     >
                         () => { Countries.map(country => <option key={country.code} value={country.code}>{country.code}</option>)}
 
                     </NativeSelect>
                 </FormControl>
             </Grid>
-            {/*<Grid item xs={2}>
+            <Grid item xs={2}>
                 <br/>
-                <Button variant="contained" color="primary" type="submit">
+                <Button variant="contained" color="primary" type="submit" fullWidth={true}>
                     Display
                 </Button>
             </Grid>
-            */}
+            
         </Grid>
     );
 }  

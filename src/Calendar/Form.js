@@ -14,34 +14,34 @@ class Form extends Component {
         startDay : moment('2008-08-15'),
         numberOfDays : 17,
         country : "CR",
-        months: this.getMonths(moment('2008-08-15'), 17)
-    }
-
-    setStartDate(event){
-        this.setState({ startDay :  moment(event.target.value), key :  event.target.value });
-    }
-
-    setStartNumberOfDays(event){
-        this.setState({ numberOfDays : event.target.value });
-        console.log(event.target.value);
-        this.updateMonths(this.state.startDay, event.target.value);
-    }
-
-    setStartCountry(event){
-        this.setState({ country : event.target.value });
-    }
-    
-    onSubmit(event){
-        event.preventDefault();
-    }
-
-    updateMonths(startDay, numberOfDays){
-        const months = this.getMonths(startDay, numberOfDays);
-        this.setState({ months : months});
+        months: this.getMonths(moment('2008-08-15'), 17),
+        holidays: null
     }
 
     getMonths(startDay, numberOfDays){
         return startDay.month() != (moment(startDay).add(numberOfDays - 1, 'days')).month() ? 2 : 1;
+    }
+
+    async componentDidMount() {
+        const holidaysUrl = 'https://raw.githubusercontent.com/commenthol/date-holidays/master/data/holidays.json';
+        const response = await fetch(holidaysUrl);
+        const holidays = await response.json();
+        this.setState({ holidays });
+    }
+
+    onSubmit(event){
+        event.preventDefault();
+                
+        const startDay = document.getElementById("startDate").value;  
+        const numberOfDays = document.getElementById("numberOfdays").value; 
+        const country = document.getElementById("countryCode").value; 
+
+        this.setState({
+            startDay : moment(startDay),
+            numberOfDays,
+            country,
+            months: this.getMonths(moment(startDay), numberOfDays)
+        })
     }
 
     render() {
@@ -49,10 +49,11 @@ class Form extends Component {
             <div>
                 <br/>
                 <Grid container  spacing={0} >
-                    <Grid item xs={4}/>
+                    <Grid item xs={4}></Grid>
                     <Grid item xs={4}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">And now you can choose</FormLabel>
+                            <div style = {{color: 'red', width:"619px" }}></div>
+                            <FormLabel component="legend">And now you can see holidays</FormLabel>
                             <FormControl component="form" onSubmit={(event) => this.onSubmit(event)}>
                                 <br/>
                                 <Inputs 

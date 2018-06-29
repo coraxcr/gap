@@ -32,7 +32,21 @@ class Calendar extends Component {
             onFocusChange={focusedInput => this.setState({ focusedInput })} 
             numberOfMonths = {this.props.months}
             initialVisibleMonth ={() => this.props.startDay}
-            isDayHighlighted = {(a) => { return false}}
+            isDayHighlighted = {(toEvaluate) => {
+              const month = toEvaluate.format('MM');
+              const day = toEvaluate.format('DD');
+              if(!!this.props.holidays){
+                //TODO: Change of API, this code is only for demo. Not for production enviroments. No all days match.
+                try{
+                  const holiday = this.props.holidays.holidays[this.props.country].days[`${month}-${day}`];
+                  if(holiday)
+                    return true;
+                }catch(e){
+                  console.log(e);
+                }
+              }
+              return false
+            }}
             withPortal = {false}
           />
         </div>
