@@ -15,7 +15,8 @@ class Form extends Component {
         numberOfDays : 17,
         country : "CR",
         months: this.getMonths(moment('2008-08-15'), 17),
-        holidays: null
+        holidays: null,
+        key : false
     }
 
     getMonths(startDay, numberOfDays){
@@ -36,11 +37,12 @@ class Form extends Component {
         const numberOfDays = document.getElementById("numberOfdays").value; 
         const country = document.getElementById("countryCode").value; 
 
-        this.setState({
+        this.setState((prevState) => {return {
             startDay : moment(startDay),
             numberOfDays,
             country,
-            months: this.getMonths(moment(startDay), numberOfDays)
+            months: this.getMonths(moment(startDay), numberOfDays),
+            key: !prevState.key}
         })
     }
 
@@ -63,7 +65,7 @@ class Form extends Component {
                                 { ...this.state }/>
                             </FormControl>
                             <br/><br/>
-                            <Calendar key = { this.state.startDay } { ...this.state } /> 
+                            <Calendar key = { this.state.numberOfDays } { ...this.state } /> 
                             <br/>
                             <FormHelperText></FormHelperText>  
                         </FormControl>
