@@ -23,7 +23,8 @@ const Inputs = (props) => {
                         shrink: true,
                     }}
                     defaultValue = { props.startDay.format("YYYY-MM-DD")  }
-                    inputProps = { { min: "0001-01-01"} }
+                    inputProps = { { min: "0001-01-01", required : true} }
+                    req
                 />
             </Grid>
             <Grid item xs={4}>
@@ -31,7 +32,7 @@ const Inputs = (props) => {
                     id="numberOfdays"
                     label="Number of days"
                     type="number"
-                    inputProps = { { min:0} }
+                    inputProps = { { min:0, required : true} }
                     defaultValue = { props.numberOfDays }
                     onFocus = {(event) => event.target.select()}
                 />
