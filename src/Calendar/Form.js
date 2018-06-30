@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  Inputs from './Inputs';
+import Inputs from './Inputs';
 import Calendar from './Calendar';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -20,7 +20,7 @@ class Form extends Component {
     }
 
     getMonths(startDay, numberOfDays){
-        return startDay.month() != (moment(startDay).add(numberOfDays - 1, 'days')).month() ? 2 : 1;
+        return startDay.month() !== (moment(startDay).add(numberOfDays - 1, 'days')).month() ? 2 : 1;
     }
 
     async componentDidMount() {

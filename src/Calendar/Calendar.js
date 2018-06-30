@@ -3,17 +3,12 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import  moment from  "moment";
 import { DayPickerRangeController } from 'react-dates';
-import { isNull } from 'util';
 import './react_dates_overrides.css'
 
 class Calendar extends Component {
     
     constructor(props) {
       super(props);
-      //console.log(props);
-      //console.log(props.startDay.add(props.numberOfDays, 'days'));
-      //console.log(props.startDay);
-      
       this.state = {
         startDate: null,
         endDate: null,
