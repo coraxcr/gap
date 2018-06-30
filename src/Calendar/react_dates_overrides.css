@@ -7,7 +7,8 @@
 }
 
 .CalendarDay__selected_span,
-.CalendarDay__selected{
+.CalendarDay__selected,
+.CalendarDay__selected_span.CalendarDay__default:hover{
     background: green;
     color: black;
     border: 1px solid white;
@@ -16,7 +17,13 @@
 .CalendarDay__firstDayOfWeek.CalendarDay__selected_span,
 .CalendarDay__lastDayOfWeek.CalendarDay__selected_span,
 .CalendarDay__firstDayOfWeek.CalendarDay__selected,
-.CalendarDay__lastDayOfWeek.CalendarDay__selected{
+.CalendarDay__lastDayOfWeek.CalendarDay__selected,
+
+.CalendarDay__firstDayOfWeek.CalendarDay__selected_span.CalendarDay__default:hover,
+.CalendarDay__lastDayOfWeek.CalendarDay__selected_span.CalendarDay__default:hover,
+.CalendarDay__firstDayOfWeek.CalendarDay__selected.CalendarDay__default:hover,
+.CalendarDay__lastDayOfWeek.CalendarDay__selected.CalendarDay__default:hover
+{
     background: yellow;
     color: black;
     border: 1px solid white;

@@ -31,7 +31,8 @@ const Inputs = (props) => {
                     id="numberOfdays"
                     label="Number of days"
                     type="number"
-                    inputProps = { { min:0, required : "true"} }
+                    fullWidth={true}
+                    inputProps = { { min:0, max: 10000000,required : "true"} }
                     defaultValue = { props.numberOfDays }
                     onFocus = {(event) => event.target.select()}
                 />

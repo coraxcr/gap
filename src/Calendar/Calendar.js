@@ -25,6 +25,7 @@ class Calendar extends Component {
       return (
         <div className="App">
           <DayPickerRangeController
+            isDayBlocked = {(day) => true}
             startDate={this.props.startDay} 
             endDate={moment(this.props.startDay).add(this.props.numberOfDays - 1, 'days')} 
             onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate })}} 
