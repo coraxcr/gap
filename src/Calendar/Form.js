@@ -20,7 +20,9 @@ class Form extends Component {
     }
 
     getMonths(startDay, numberOfDays){
-        return startDay.month() !== (moment(startDay).add(numberOfDays - 1, 'days')).month() ? 2 : 1;
+        const endDay = (moment(startDay).add(numberOfDays - 1, 'days'));
+        return (startDay.month() !== endDay.month() ||
+               startDay.year() !== endDay.year()) ? 2 : 1;
     }
 
     async componentDidMount() {
@@ -65,7 +67,7 @@ class Form extends Component {
                                 { ...this.state }/>
                             </FormControl>
                             <br/><br/>
-                            <Calendar key = { this.state.numberOfDays } { ...this.state } /> 
+                            <Calendar key = { this.state.key } { ...this.state } /> 
                             <br/>
                             <FormHelperText></FormHelperText>  
                         </FormControl>
